@@ -1,12 +1,17 @@
+"use client";
+import { useTheme } from "next-themes";
+import DarkMode from "./DarkMode";
+
 export default function Logo() {
+  const { theme } = useTheme();
   return (
     <>
-      <div className="flex flex-col relative mb-10 items-center">
+      <div className="flex flex-row m-10 items-center">
         <img
-          className="w-[400px] h-[300px]"
-          src="/localshare.png"
+          src={theme === "dark" ? "/localshare-white.png" : "/localshare.png"}
           alt="Profile"
         />
+        <DarkMode />
       </div>
     </>
   );
